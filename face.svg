@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 60">
+  <ellipse cx="15" cy="12" rx="8" ry="9" class="eye right-eye" fill="currentColor" />
+  <ellipse cx="80" cy="12" rx="8" ry="9" class="eye left-eye" fill="currentColor" />
+  <path 
+    stroke-linecap="round" 
+    d="M30 40 c0 20, 40 20, 40 0" 
+    fill="currentColor" stroke="currentColor" />
+</svg>

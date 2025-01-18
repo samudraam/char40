@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap");
+.box {
+  height: 15rem;
+  width: 15rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.circle {
+  width: 14rem;
+  height: 14rem;
+  border-radius: 70%;
+  background-color: #808080;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+}
+
+.text {
+  position: absolute;
+  color: white;
+  bottom: 10px;
+  right: 10px;
+  font-weight: bold;
+  margin: 0;
+  z-index: 1;
+  font-family: "Kantumruy Pro", serif;
+  font-weight: 200;
+}
+
+#circle-1,
+#circle-2,
+#circle-3,
+#circle-4,
+#circle-5,
+#circle-6,
+#circle-7 {
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.letterM,
+.letterA,
+.letterK,
+.letterE,
+.letterI {
+  font-family: "Kantumruy Pro", serif;
+  font-size: 7rem;
+  font-weight: 300;
+  color: black;
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.letterI,
+.letterT {
+  font-family: "Kantumruy Pro", serif;
+  font-size: 7rem;
+  font-weight: 300;
+  color: black;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.letterU,
+.letterP {
+  font-family: "Kantumruy Pro", serif;
+  font-size: 7rem;
+  font-weight: 300;
+  color: black;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s;
+}
+
+.click {
+  font-family: "Kantumruy Pro", serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: black;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
