@@ -110,7 +110,26 @@
 .iconText10,
 .iconText11,
 .iconText12,
-.iconText13 {
+.iconText13,
+.iconText14,
+.iconText15,
+.iconText16,
+.iconText17,
+.iconText18,
+.iconText19,
+.iconText20,
+.iconText21,
+.iconText22,
+.iconText23,
+.iconText24,
+.iconText25,
+.iconText26,
+.iconText27,
+.iconText28,
+.iconText29,
+.iconText30,
+.iconText31,
+.iconText32 {
   font-family: "Raleway", serif;
   font-size: 3rem;
   font-weight: 200;
@@ -139,4 +158,53 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.pattern1 {
+  background-image: repeating-conic-gradient(#000000 0% 25%, #e4e4ed 0% 50%);
+  background-position: 0 0, 32px 32px;
+  background-size: 64px 64px;
+  background-color: #9f9f9f;
+}
+
+.pattern2 {
+  background: radial-gradient(
+        farthest-side at -33.33% 50%,
+        #0000 52%,
+        #00ff15 54% 57%,
+        #0000 59%
+      )
+      0 calc(128px / 2),
+    radial-gradient(
+        farthest-side at 50% 133.33%,
+        #0000 52%,
+        #203b4f 54% 57%,
+        #0000 59%
+      )
+      calc(128px / 2) 0,
+    radial-gradient(
+      farthest-side at 133.33% 50%,
+      #0000 52%,
+      #83a90f 54% 57%,
+      #0000 59%
+    ),
+    radial-gradient(
+      farthest-side at 50% -33.33%,
+      #0000 52%,
+      #1a8fe5 54% 57%,
+      #0000 59%
+    ),
+    #e4e4ed;
+  background-size: calc(128px / 4.667) 128px, 128px calc(128px / 4.667);
+}
+
+.pattern3 {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 32px,
+    #000000 32px,
+    #1a8fe5 64px
+  );
+  background-color: #e4e4ed;
 }

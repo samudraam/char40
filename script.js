@@ -322,17 +322,27 @@ circle9.addEventListener("click", () => {
     repeat: -1,
     yoyo: true,
     ease: "sine.inOut",
+    overwrite: "auto",
   });
   allCircles.forEach((circle) => {
     if (circle != circle9) {
       gsap.to(circle, {
         opacity: 0,
         duration: 5,
+        overwrite: "auto",
       });
     }
   });
-  gsap.to(".maincontainer", { duration: 5, backgroundColor: "#82CAFF" });
-  gsap.to("html", { duration: 5, backgroundColor: "#82CAFF" });
+  gsap.to(".maincontainer", {
+    duration: 5,
+    backgroundColor: "#82CAFF",
+    overwrite: "auto",
+  });
+  gsap.to("html", {
+    duration: 5,
+    backgroundColor: "#82CAFF",
+    overwrite: "auto",
+  });
 
   setTimeout(() => {
     allCircles.forEach((circle) => {
@@ -340,17 +350,27 @@ circle9.addEventListener("click", () => {
         gsap.to(circle, {
           opacity: 1,
           duration: 1,
+          overwrite: "auto",
         });
       }
     });
-    gsap.to(".maincontainer", { duration: 2, backgroundColor: "#000000" });
-    gsap.to("html", { duration: 2, backgroundColor: "#000000" });
+    gsap.to(".maincontainer", {
+      duration: 2,
+      backgroundColor: "#000000",
+      overwrite: "auto",
+    });
+    gsap.to("html", {
+      duration: 2,
+      backgroundColor: "#000000",
+      overwrite: "auto",
+    });
 
     gsap.killTweensOf(circle9);
     gsap.to(circle9, {
       boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
       duration: 0.5,
       backgroundColor: "#ACDED5",
+      overwrite: "auto",
     });
   }, 5000);
 });
@@ -379,6 +399,7 @@ circle10.addEventListener("click", () => {
     onComplete: () => {
       iconText2.style.display = "none";
     },
+    overwrite: "auto",
   });
   gsap.to(circle10, {
     duration: 3,
@@ -386,6 +407,7 @@ circle10.addEventListener("click", () => {
     ease: "power2.out",
     origin: "center",
     transformOrigin: "center",
+    overwrite: "auto",
   });
 });
 
@@ -433,8 +455,12 @@ circle12.addEventListener("mouseover", () => {
 });
 
 circle12.addEventListener("click", () => {
-  TweenMax.to(allCircles, 0.4, { scale: 1.5, ease: Bounce.easeOut });
-  TweenMax.to(allCircles, 0.2, { scale: 1, delay: 0.4 });
+  TweenMax.to(allCircles, 0.4, {
+    scale: 1.5,
+    ease: Bounce.easeOut,
+    overwrite: "auto",
+  });
+  TweenMax.to(allCircles, 0.2, { scale: 1, delay: 0.4, overwrite: "auto" });
 });
 
 //circle 13
@@ -455,8 +481,20 @@ circle13.addEventListener("mouseover", () => {
 
 circle13.addEventListener("click", () => {
   allCircles.forEach((circle) => {
-    gsap.to(circle, { x: "+=25", yoyo: true, repeat: -1, duration: 0.1 });
-    gsap.to(circle, { x: "-=25", yoyo: true, repeat: -1, duration: 0.1 });
+    gsap.to(circle, {
+      x: "+=25",
+      yoyo: true,
+      repeat: -1,
+      duration: 0.1,
+      overwrite: "auto",
+    });
+    gsap.to(circle, {
+      x: "-=25",
+      yoyo: true,
+      repeat: -1,
+      duration: 0.1,
+      overwrite: "auto",
+    });
   });
 });
 
@@ -479,12 +517,18 @@ circle14.addEventListener("mouseover", () => {
 circle14.addEventListener("click", () => {
   allCircles.forEach((circle) => {
     var duration = 1;
-    gsap.to(circle, { y: -50, ease: "power2.out", duration: duration / 4 });
+    gsap.to(circle, {
+      y: -50,
+      ease: "power2.out",
+      duration: duration / 4,
+      overwrite: "auto",
+    });
     gsap.to(circle, {
       y: 0,
       ease: "bounce.out",
       duration: duration / 2,
       delay: duration / 4,
+      overwrite: "auto",
     });
   });
 });
@@ -521,8 +565,10 @@ circle15.addEventListener("click", () => {
             modifiers: {
               rotation: gsap.utils.wrap(0, 360),
             },
+            overwrite: "auto",
           });
         },
+        overwrite: "auto",
       }
     );
   });
@@ -556,8 +602,10 @@ circle16.addEventListener("click", () => {
           duration: 1,
           delay: 1,
           ease: "power2.out",
+          overwrite: "auto",
         });
       },
+      overwrite: "auto",
     });
   });
 });
@@ -599,6 +647,7 @@ circle17.addEventListener("click", () => {
       duration: random(10, 15),
       ease: "power1.out",
       onComplete: () => confetti.remove(),
+      overwrite: "auto",
     });
   }
 });
@@ -630,6 +679,7 @@ circle18.addEventListener("click", () => {
         repeat: -1,
         yoyo: true,
         ease: "power1.inOut",
+        overwrite: "auto",
       });
     }
   }
@@ -658,6 +708,7 @@ circle19.addEventListener("click", () => {
       gsap.to(`#circle-${i}`, {
         backgroundColor: "#FF0000",
         duration: 1,
+        overwrite: "auto",
       });
     }
   }
@@ -708,15 +759,18 @@ circle20.addEventListener("click", () => {
         onComplete: () => {
           video.play();
         },
+        overwrite: "auto",
       });
       setTimeout(() => {
         gsap.to([circle19, circle17, circle18], {
           x: "-100vw",
           duration: 2,
           ease: "power1.inOut",
+          overwrite: "auto",
         });
       }, 10000);
     },
+    overwrite: "auto",
   });
 });
 
@@ -740,22 +794,562 @@ circle21.addEventListener("click", () => {
     "https://youtu.be/5yPO5lFeAIE?si=7J31pr7Fc7PnIQAR&t=130";
 });
 
-//circle 21
+//circle 22
 const { letter: iconText14, circle: circle22 } = appendTextToCircle(
   "circle-22",
-  "kaaram 🌶️",
-  "iconText13"
+  "blur",
+  "iconText14"
 );
-circle21.addEventListener("mouseover", () => {
-  gsap.to(circle21, {
-    backgroundColor: "#E0C396",
+circle22.addEventListener("mouseover", () => {
+  gsap.to(circle22, {
+    backgroundColor: "#CCA589",
     duration: 1,
   });
-  gsap.to(iconText13, {
+  gsap.to(iconText14, {
     opacity: 1,
   });
 });
-circle21.addEventListener("click", () => {
-  window.location.href =
-    "https://youtu.be/5yPO5lFeAIE?si=7J31pr7Fc7PnIQAR&t=130";
+circle22.addEventListener("click", () => {
+  gsap.to("body", {
+    filter: "blur(10px)",
+    duration: 1,
+    overwrite: "auto",
+  });
+});
+
+//circle 23
+const { letter: iconText15, circle: circle23 } = appendTextToCircle(
+  "circle-23",
+  "invert",
+  "iconText15"
+);
+circle23.addEventListener("mouseover", () => {
+  gsap.to(circle23, {
+    backgroundColor: "#D7A9A5",
+    duration: 1,
+  });
+  gsap.to(iconText15, {
+    opacity: 1,
+  });
+});
+circle23.addEventListener("click", () => {
+  gsap.to(allCircles, {
+    filter: "drop-shadow(16px 16px 20px red) invert(100%)",
+    duration: 1,
+    overwrite: "auto",
+  });
+});
+
+//circle 24
+const { letter: iconText16, circle: circle24 } = appendTextToCircle(
+  "circle-24",
+  "grey",
+  "iconText16"
+);
+circle24.addEventListener("mouseover", () => {
+  gsap.to(circle24, {
+    backgroundColor: "#8C65B0",
+    duration: 1,
+  });
+  gsap.to(iconText16, {
+    opacity: 1,
+  });
+});
+circle24.addEventListener("click", () => {
+  gsap.to(allCircles, {
+    filter: " grayscale(100%)",
+    duration: 1,
+    overwrite: "auto",
+  });
+});
+
+//circle 25
+const { letter: iconText17, circle: circle25 } = appendTextToCircle(
+  "circle-25",
+  "contrast",
+  "iconText17"
+);
+circle25.addEventListener("mouseover", () => {
+  gsap.to(circle25, {
+    backgroundColor: "#90BAB2",
+    duration: 1,
+  });
+  gsap.to(iconText17, {
+    opacity: 1,
+  });
+});
+circle25.addEventListener("click", () => {
+  gsap.to(allCircles, {
+    filter: "contrast(300%)",
+    duration: 1,
+    overwrite: "auto",
+  });
+});
+
+//circle 26
+const { letter: iconText18, circle: circle26 } = appendTextToCircle(
+  "circle-26",
+  "disappear",
+  "iconText18"
+);
+circle26.addEventListener("mouseover", () => {
+  gsap.to(circle26, {
+    backgroundColor: "#8AAD98",
+    duration: 1,
+  });
+  gsap.to(iconText18, {
+    opacity: 1,
+  });
+});
+circle26.addEventListener("click", () => {
+  gsap.to(allCircles, {
+    opacity: 0,
+    duration: 1,
+    ease: "power2.inOut",
+    overwrite: "auto",
+  });
+});
+
+//circle 27
+const { letter: iconText19, circle: circle27 } = appendTextToCircle(
+  "circle-27",
+  "shrink",
+  "iconText19"
+);
+circle27.addEventListener("mouseover", () => {
+  gsap.to(circle27, {
+    backgroundColor: "#8299A9",
+    duration: 1,
+  });
+  gsap.to(iconText19, {
+    opacity: 1,
+  });
+});
+
+circle27.addEventListener("click", () => {
+  allCircles.forEach((circle) => {
+    gsap.to(circle, {
+      scale: 0.5,
+      duration: 1,
+      ease: "power2.inOut",
+      overwrite: "auto",
+    });
+    const text = circle.querySelector("p");
+    if (text) {
+      gsap.to(text, {
+        scale: 0.5,
+        duration: 1,
+        ease: "power2.inOut",
+        overwrite: "auto",
+      });
+    }
+  });
+});
+
+//circle 28
+const { letter: iconText20, circle: circle28 } = appendTextToCircle(
+  "circle-28",
+  "random color",
+  "iconText20"
+);
+circle28.addEventListener("mouseover", () => {
+  gsap.to(circle28, {
+    backgroundColor: "#897690",
+    duration: 1,
+  });
+  gsap.to(iconText20, {
+    opacity: 1,
+  });
+});
+
+circle28.addEventListener("click", () => {
+  allCircles.forEach((circle) => {
+    const randomColor = `hsl(${Math.random() * 360}, 100%, 75%)`;
+    gsap.to(circle, {
+      backgroundColor: randomColor,
+      duration: 1,
+      overwrite: "auto",
+    });
+  });
+});
+
+//circle 29
+const { letter: iconText21, circle: circle29 } = appendTextToCircle(
+  "circle-29",
+  "block",
+  "iconText21"
+);
+circle29.addEventListener("mouseover", () => {
+  gsap.to(circle29, {
+    backgroundColor: "#B29C77",
+    duration: 1,
+  });
+  gsap.to(iconText21, {
+    opacity: 1,
+  });
+});
+
+circle29.addEventListener("click", () => {
+  const hugeCircle = document.createElement("div");
+  hugeCircle.style.position = "fixed";
+  hugeCircle.style.width = "100vw";
+  hugeCircle.style.height = "100vh";
+  hugeCircle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 75%)`;
+  hugeCircle.style.borderRadius = "50%";
+  hugeCircle.style.top = "50%";
+  hugeCircle.style.left = "50%";
+  hugeCircle.style.transform = "translate(-50%, -50%)";
+  hugeCircle.style.zIndex = "1000";
+  document.body.appendChild(hugeCircle);
+
+  gsap.fromTo(
+    hugeCircle,
+    { scale: 0 },
+    { scale: 1, duration: 1, ease: "power2.out" }
+  );
+});
+
+//circle 30
+const { letter: iconText22, circle: circle30 } = appendTextToCircle(
+  "circle-30",
+  "pop",
+  "iconText22"
+);
+circle30.addEventListener("mouseover", () => {
+  gsap.to(circle30, {
+    backgroundColor: "#9B7E69",
+    duration: 1,
+  });
+  gsap.to(iconText22, {
+    opacity: 1,
+  });
+});
+
+circle30.addEventListener("click", () => {
+  allCircles.forEach((circle) => {
+    if (circle !== circle30) {
+      gsap.to(circle, {
+        scale: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
+        onComplete: () => {
+          circle.style.display = "none";
+        },
+        overwrite: "auto",
+      });
+    }
+  });
+});
+
+//circle 31
+const { letter: iconText23, circle: circle31 } = appendTextToCircle(
+  "circle-31",
+  "grow",
+  "iconText23"
+);
+circle31.addEventListener("mouseover", () => {
+  gsap.to(circle31, {
+    backgroundColor: "#A67E7A",
+    duration: 1,
+  });
+  gsap.to(iconText23, {
+    opacity: 1,
+  });
+});
+
+circle31.addEventListener("click", () => {
+  allCircles.forEach((circle) => {
+    gsap.to(circle, {
+      scale: 2,
+      duration: 1,
+      ease: "power2.inOut",
+      overwrite: "auto",
+    });
+  });
+});
+
+//circle 32
+const { letter: iconText24, circle: circle32 } = appendTextToCircle(
+  "circle-32",
+  "top secret",
+  "iconText24"
+);
+circle32.addEventListener("mouseover", () => {
+  gsap.to(circle32, {
+    backgroundColor: "#684B83",
+    duration: 1,
+  });
+  gsap.to(iconText24, {
+    opacity: 1,
+  });
+});
+
+circle32.addEventListener("click", () => {
+  const popup = document.createElement("div");
+  popup.style.position = "fixed";
+  popup.style.top = "50%";
+  popup.style.left = "50%";
+  popup.style.transform = "translate(-50%, -50%)";
+  popup.style.width = "80vw";
+  popup.style.height = "80vh";
+  popup.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+  popup.style.zIndex = "1000";
+  popup.style.display = "flex";
+  popup.style.justifyContent = "center";
+  popup.style.alignItems = "center";
+
+  const iframe = document.createElement("iframe");
+  iframe.width = "100%";
+  iframe.height = "100%";
+  iframe.src =
+    "https://www.youtube.com/embed/n1j_waIwr6A?si=e9S5ykqsRFC2rf1W%22%20title=%22YouTube%20video%20player";
+  iframe.allow =
+    "autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  iframe.referrerPolicy = "";
+  iframe.allowFullscreen = true;
+
+  popup.appendChild(iframe);
+  document.body.appendChild(popup);
+
+  popup.addEventListener("click", () => {
+    document.body.removeChild(popup);
+  });
+});
+
+//circle 33
+const { letter: iconText25, circle: circle33 } = appendTextToCircle(
+  "circle-33",
+  "border",
+  "iconText25"
+);
+
+circle33.addEventListener("mouseover", () => {
+  gsap.to(circle33, {
+    backgroundColor: "#93BCB5",
+    duration: 1,
+  });
+  gsap.to(iconText25, {
+    opacity: 1,
+  });
+});
+circle33.style.borderStyle = "solid";
+
+circle33.addEventListener("click", () => {
+  gsap.fromTo(
+    circle33,
+    { borderWidth: "0px", borderColor: "transparent" },
+    {
+      borderWidth: "80px",
+      borderColor: "#FFF",
+      duration: 2,
+      ease: "power2.inOut",
+      onComplete: () => {
+        gsap.to(circle33, {
+          borderWidth: "0px",
+          borderColor: "transparent",
+          duration: 1,
+          ease: "power2.inOut",
+        });
+      },
+      overwrite: "auto",
+    }
+  );
+});
+//circle 34
+const { letter: iconText26, circle: circle34 } = appendTextToCircle(
+  "circle-34",
+  "flash",
+  "iconText26"
+);
+
+circle34.addEventListener("mouseover", () => {
+  gsap.to(circle34, {
+    backgroundColor: "#6D8A79",
+    duration: 1,
+  });
+  gsap.to(iconText26, {
+    opacity: 1,
+  });
+});
+
+circle34.addEventListener("click", () => {
+  const flashColors = () => {
+    const randomColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    gsap.to(allCircles, {
+      backgroundColor: randomColor,
+      duration: 0.5,
+      onComplete: flashColors,
+      overwrite: "auto",
+    });
+  };
+  flashColors();
+});
+
+//circle 35
+const { letter: iconText27, circle: circle35 } = appendTextToCircle(
+  "circle-35",
+  "breathe",
+  "iconText27"
+);
+
+circle35.addEventListener("mouseover", () => {
+  gsap.to(circle35, {
+    backgroundColor: "#70828F",
+    duration: 1,
+  });
+  gsap.to(iconText27, {
+    opacity: 1,
+  });
+});
+
+circle35.addEventListener("click", () => {
+  gsap.to(allCircles, {
+    y: "-=25",
+    duration: 1,
+    ease: "power1.inOut",
+    yoyo: true,
+    repeat: -1,
+    overwrite: "auto",
+  });
+});
+
+//circle 36
+const { letter: iconText28, circle: circle36 } = appendTextToCircle(
+  "circle-36",
+  "no",
+  "iconText28"
+);
+
+circle36.addEventListener("mouseover", () => {
+  gsap.to(circle36, {
+    backgroundColor: "#87808A",
+    duration: 1,
+  });
+  gsap.to(iconText28, {
+    opacity: 1,
+  });
+});
+
+circle36.addEventListener("click", () => {
+  iconText28.textContent = iconText28.textContent === "no" ? "yes" : "no";
+});
+
+//circle 37
+const { letter: iconText29, circle: circle37 } = appendTextToCircle(
+  "circle-37",
+  "boxed",
+  "iconText29"
+);
+
+circle37.addEventListener("mouseover", () => {
+  gsap.to(circle37, {
+    backgroundColor: "#9E8968",
+    duration: 1,
+  });
+  gsap.to(iconText29, {
+    opacity: 1,
+  });
+});
+
+circle37.addEventListener("click", () => {
+  for (let i = 0; i < 700; i++) {
+    const boxes = document.createElement("div");
+    boxes.classList.add("boxes");
+    const size = Math.random() * 50 + 20;
+    boxes.style.width = `${size}px`;
+    boxes.style.height = `${size}px`;
+
+    const pageHeight = document.documentElement.scrollHeight;
+    const pageWidth = document.documentElement.scrollWidth;
+
+    boxes.style.position = "absolute";
+    boxes.style.top = `${Math.random() * (pageHeight - size)}px`;
+    boxes.style.left = `${Math.random() * (pageWidth - size)}px`;
+    boxes.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 50%)`;
+    boxes.style.zIndex = "1000";
+
+    document.body.appendChild(boxes);
+
+    gsap.fromTo(
+      boxes,
+      { opacity: 0, scale: 0 },
+      { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }
+    );
+
+    setTimeout(() => {
+      gsap.to(boxes, {
+        opacity: 0,
+        duration: 1,
+        onComplete: () => boxes.remove(),
+      });
+    }, 5000);
+  }
+});
+//circle 38
+const { letter: iconText30, circle: circle38 } = appendTextToCircle(
+  "circle-38",
+  "pattern",
+  "iconText30"
+);
+
+circle38.addEventListener("mouseover", () => {
+  gsap.to(circle38, {
+    backgroundColor: "#8F7460",
+    duration: 1,
+  });
+  gsap.to(iconText30, {
+    opacity: 1,
+  });
+});
+circle38.addEventListener("click", () => {
+  const patterns = ["pattern1", "pattern2", "pattern3"];
+  const randomPattern = patterns[Math.floor(Math.random() * patterns.length)];
+  patterns.forEach((pattern) => document.body.classList.remove(pattern));
+  document.body.classList.add(randomPattern);
+});
+
+//circle 39
+const { letter: iconText31, circle: circle39 } = appendTextToCircle(
+  "circle-39",
+  "love you",
+  "iconText31"
+);
+
+circle39.addEventListener("mouseover", () => {
+  gsap.to(circle39, {
+    backgroundColor: "#5F4441",
+    duration: 1,
+  });
+  gsap.to(iconText31, {
+    opacity: 1,
+  });
+});
+
+const compliments = ["You're cute!", "You're so smart!", "You're the best!"];
+let complimentIndex = 0;
+
+circle39.addEventListener("click", () => {
+  alert(compliments[complimentIndex]);
+  complimentIndex = (complimentIndex + 1) % compliments.length;
+});
+
+//circle 40
+const { letter: iconText32, circle: circle40 } = appendTextToCircle(
+  "circle-40",
+  "reload",
+  "iconText32"
+);
+
+circle40.addEventListener("mouseover", () => {
+  gsap.to(circle40, {
+    backgroundColor: "#60556A",
+    duration: 1,
+  });
+  gsap.to(iconText32, {
+    opacity: 1,
+  });
+});
+
+circle40.addEventListener("click", () => {
+  location.reload();
 });
