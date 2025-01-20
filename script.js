@@ -33,7 +33,6 @@ window.addEventListener("load", () => {
       opacity: 1,
       scale: 1,
       duration: 5,
-      stagger: 0.1,
       ease: "elastic.out(1, 0.5)",
     }
   );
@@ -56,6 +55,9 @@ function appendTextToCircle(circleId, letterText, letterClass) {
   circle.appendChild(letter);
 
   return { letter, circle };
+}
+function random(min, max) {
+  return Math.random() * (max - min) + min;
 }
 
 //circle-1
@@ -291,12 +293,11 @@ circle8.addEventListener("mouseover", () => {
 });
 
 //circle-9
-const icon = document.createElement("i");
-icon.classList.add("fas", "fa-star"); // Add Font Awesome classes
-
-// Append the icon to a circle
-const circle9 = document.getElementById("circle9");
-circle9.appendChild(icon);
+const { letter: iconText1, circle: circle9 } = appendTextToCircle(
+  "circle-9",
+  "sunrise",
+  "iconText1"
+);
 
 let isCircle9 = false;
 
@@ -306,7 +307,7 @@ circle9.addEventListener("mouseover", () => {
     duration: 1,
   });
   isCircle9 = true;
-  gsap.to(click, {
+  gsap.to(iconText1, {
     opacity: 1,
   });
 });
@@ -355,16 +356,30 @@ circle9.addEventListener("click", () => {
 });
 
 //circle 10
-const circle10 = document.getElementById("circle-10");
+const { letter: iconText2, circle: circle10 } = appendTextToCircle(
+  "circle-10",
+  "absorb",
+  "iconText2"
+);
 
 circle10.addEventListener("mouseover", () => {
   gsap.to(circle10, {
     backgroundColor: "#A7D1B8",
     duration: 1,
   });
+  gsap.to(iconText2, {
+    opacity: 1,
+  });
 });
 
 circle10.addEventListener("click", () => {
+  gsap.to(iconText2, {
+    opacity: 0,
+    duration: 1,
+    onComplete: () => {
+      iconText2.style.display = "none";
+    },
+  });
   gsap.to(circle10, {
     duration: 3,
     scale: 30,
@@ -377,12 +392,18 @@ circle10.addEventListener("click", () => {
 //circle 11
 gsap.registerPlugin(Draggable);
 
-const circle11 = document.getElementById("circle-11");
-
+const { letter: iconText3, circle: circle11 } = appendTextToCircle(
+  "circle-11",
+  "drag drop",
+  "iconText3"
+);
 circle11.addEventListener("mouseover", () => {
   gsap.to(circle11, {
     backgroundColor: "#AAC7DA",
     duration: 1,
+  });
+  gsap.to(iconText3, {
+    opacity: 1,
   });
 });
 
@@ -392,17 +413,349 @@ circle11.addEventListener("click", () => {
       type: "x,y",
       bounds: document.body,
     });
-    TweenMax.to(circle, 0.1, { x: "+=25", yoyo: true, repeat: -1 }); //ig this is outdated bt whatever man
-    TweenMax.to(circle, 0.1, { x: "-=25", yoyo: true, repeat: -1 });
   });
 });
 
 //circle 12
-const circle12 = document.getElementById("circle-12");
-
+const { letter: iconText4, circle: circle12 } = appendTextToCircle(
+  "circle-12",
+  "spring",
+  "iconText4"
+);
 circle12.addEventListener("mouseover", () => {
   gsap.to(circle12, {
-    backgroundColor: "#AAC7DA",
+    backgroundColor: "#C6AAD0",
     duration: 1,
   });
+  gsap.to(iconText4, {
+    opacity: 1,
+  });
+});
+
+circle12.addEventListener("click", () => {
+  TweenMax.to(allCircles, 0.4, { scale: 1.5, ease: Bounce.easeOut });
+  TweenMax.to(allCircles, 0.2, { scale: 1, delay: 0.4 });
+});
+
+//circle 13
+const { letter: iconText5, circle: circle13 } = appendTextToCircle(
+  "circle-13",
+  "shake",
+  "iconText5"
+);
+circle13.addEventListener("mouseover", () => {
+  gsap.to(circle13, {
+    backgroundColor: "#FCDCA9",
+    duration: 1,
+  });
+  gsap.to(iconText5, {
+    opacity: 1,
+  });
+});
+
+circle13.addEventListener("click", () => {
+  allCircles.forEach((circle) => {
+    gsap.to(circle, { x: "+=25", yoyo: true, repeat: -1, duration: 0.1 });
+    gsap.to(circle, { x: "-=25", yoyo: true, repeat: -1, duration: 0.1 });
+  });
+});
+
+//circle 14
+const { letter: iconText6, circle: circle14 } = appendTextToCircle(
+  "circle-14",
+  "jump",
+  "iconText6"
+);
+circle14.addEventListener("mouseover", () => {
+  gsap.to(circle14, {
+    backgroundColor: "#F0C3A2",
+    duration: 1,
+  });
+  gsap.to(iconText6, {
+    opacity: 1,
+  });
+});
+
+circle14.addEventListener("click", () => {
+  allCircles.forEach((circle) => {
+    var duration = 1;
+    gsap.to(circle, { y: -50, ease: "power2.out", duration: duration / 4 });
+    gsap.to(circle, {
+      y: 0,
+      ease: "bounce.out",
+      duration: duration / 2,
+      delay: duration / 4,
+    });
+  });
+});
+
+//circle 15
+const { letter: iconText7, circle: circle15 } = appendTextToCircle(
+  "circle-15",
+  "spin",
+  "iconText7"
+);
+circle15.addEventListener("mouseover", () => {
+  gsap.to(circle15, {
+    backgroundColor: "#EBBAB5",
+    duration: 1,
+  });
+  gsap.to(iconText7, {
+    opacity: 1,
+  });
+});
+
+circle15.addEventListener("click", () => {
+  allCircles.forEach((circle) => {
+    gsap.fromTo(
+      circle,
+      { rotation: 0 },
+      {
+        rotation: 1080,
+        duration: 3,
+        ease: "power2.out",
+        onComplete: () => {
+          gsap.to(circle, {
+            rotation: 0,
+            duration: 0.5,
+            modifiers: {
+              rotation: gsap.utils.wrap(0, 360),
+            },
+          });
+        },
+      }
+    );
+  });
+});
+
+//circle 16
+const { letter: iconText8, circle: circle16 } = appendTextToCircle(
+  "circle-16",
+  "squared",
+  "iconText8"
+);
+circle16.addEventListener("mouseover", () => {
+  gsap.to(circle16, {
+    backgroundColor: "#9D70C8",
+    duration: 1,
+  });
+  gsap.to(iconText8, {
+    opacity: 1,
+  });
+});
+
+circle16.addEventListener("click", () => {
+  allCircles.forEach((circle) => {
+    gsap.to(circle, {
+      borderRadius: "15%",
+      duration: 2,
+      ease: "power2.out",
+      onComplete: () => {
+        gsap.to(circle, {
+          borderRadius: "50%",
+          duration: 1,
+          delay: 1,
+          ease: "power2.out",
+        });
+      },
+    });
+  });
+});
+
+//circle 17
+const { letter: iconText9, circle: circle17 } = appendTextToCircle(
+  "circle-17",
+  "confetti",
+  "iconText9"
+);
+circle17.addEventListener("mouseover", () => {
+  gsap.to(circle17, {
+    backgroundColor: "#9AC7BF",
+    duration: 1,
+  });
+  gsap.to(iconText9, {
+    opacity: 1,
+  });
+});
+
+circle17.addEventListener("click", () => {
+  for (let i = 0; i < 1000; i++) {
+    const confetti = document.createElement("div");
+    confetti.style.position = "absolute";
+    confetti.style.width = `${random(5, 15)}px`;
+    confetti.style.height = `${random(5, 15)}px`;
+    confetti.style.backgroundColor = `hsl(${random(0, 360)}, 70%, 50%)`;
+    confetti.style.borderRadius = "50%";
+    confetti.style.zIndex = "500";
+    confetti.style.top = `${random(-50, 50)}px`;
+    confetti.style.left = `${random(0, window.innerWidth)}px`;
+
+    container.appendChild(confetti);
+
+    gsap.to(confetti, {
+      y: window.innerHeight + 1700,
+      x: `+=${random(-500, 500)}`,
+      rotation: random(0, 920),
+      duration: random(10, 15),
+      ease: "power1.out",
+      onComplete: () => confetti.remove(),
+    });
+  }
+});
+
+//circle 18
+const { letter: iconText10, circle: circle18 } = appendTextToCircle(
+  "circle-18",
+  "even",
+  "iconText10"
+);
+circle18.addEventListener("mouseover", () => {
+  gsap.to(circle18, {
+    backgroundColor: "#96BDA6",
+    duration: 1,
+  });
+  gsap.to(iconText10, {
+    opacity: 1,
+  });
+});
+
+circle18.addEventListener("click", () => {
+  for (let i = 1; i <= 40; i++) {
+    const isEven = i % 2 === 0;
+    if (isEven) {
+      gsap.to(`#circle-${i}`, {
+        y: "+=100",
+        rotation: 360,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      });
+    }
+  }
+});
+
+//circle 19
+const { letter: iconText11, circle: circle19 } = appendTextToCircle(
+  "circle-19",
+  "odd",
+  "iconText11"
+);
+circle19.addEventListener("mouseover", () => {
+  gsap.to(circle19, {
+    backgroundColor: "#8DA6B7",
+    duration: 1,
+  });
+  gsap.to(iconText11, {
+    opacity: 1,
+  });
+});
+
+circle19.addEventListener("click", () => {
+  for (let i = 1; i <= 40; i++) {
+    const isEven = i % 2 === 0;
+    if (!isEven) {
+      gsap.to(`#circle-${i}`, {
+        backgroundColor: "#FF0000",
+        duration: 1,
+      });
+    }
+  }
+});
+
+//circle 20
+const { letter: iconText12, circle: circle20 } = appendTextToCircle(
+  "circle-20",
+  "ballaya",
+  "iconText12"
+);
+
+const warning = document.createElement("p");
+warning.textContent = "may need to reload for full effect";
+warning.classList.add("warning");
+warning.style.opacity = "0";
+circle20.appendChild(warning);
+
+circle20.addEventListener("mouseover", () => {
+  gsap.to(circle20, {
+    backgroundColor: "#BFA7C7",
+    duration: 1,
+  });
+  gsap.to([iconText12, warning], {
+    opacity: 1,
+  });
+});
+const video = document.createElement("video");
+video.setAttribute("id", "circleVideo");
+video.setAttribute("playsinline", true);
+video.style.opacity = "0";
+
+const source = document.createElement("source");
+source.setAttribute("src", "clippedballa.mp4");
+source.setAttribute("type", "video/mp4");
+video.appendChild(source);
+
+circle20.appendChild(video);
+
+circle20.addEventListener("click", () => {
+  gsap.to(iconText12, {
+    opacity: 0,
+    duration: 1,
+    onComplete: () => {
+      gsap.to(video, {
+        opacity: 1,
+        duration: 1,
+        onComplete: () => {
+          video.play();
+        },
+      });
+      setTimeout(() => {
+        gsap.to([circle19, circle17, circle18], {
+          x: "-100vw",
+          duration: 2,
+          ease: "power1.inOut",
+        });
+      }, 10000);
+    },
+  });
+});
+
+//circle 21
+const { letter: iconText13, circle: circle21 } = appendTextToCircle(
+  "circle-21",
+  "kaaram 🌶️",
+  "iconText13"
+);
+circle21.addEventListener("mouseover", () => {
+  gsap.to(circle21, {
+    backgroundColor: "#E0C396",
+    duration: 1,
+  });
+  gsap.to(iconText13, {
+    opacity: 1,
+  });
+});
+circle21.addEventListener("click", () => {
+  window.location.href =
+    "https://youtu.be/5yPO5lFeAIE?si=7J31pr7Fc7PnIQAR&t=130";
+});
+
+//circle 21
+const { letter: iconText14, circle: circle22 } = appendTextToCircle(
+  "circle-22",
+  "kaaram 🌶️",
+  "iconText13"
+);
+circle21.addEventListener("mouseover", () => {
+  gsap.to(circle21, {
+    backgroundColor: "#E0C396",
+    duration: 1,
+  });
+  gsap.to(iconText13, {
+    opacity: 1,
+  });
+});
+circle21.addEventListener("click", () => {
+  window.location.href =
+    "https://youtu.be/5yPO5lFeAIE?si=7J31pr7Fc7PnIQAR&t=130";
 });

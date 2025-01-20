@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 .box {
   height: 15rem;
   width: 15rem;
@@ -7,6 +8,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .circle {
   width: 14rem;
   height: 14rem;
@@ -39,6 +41,17 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+.circle video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  border-radius: 70%;
 }
 
 .letterM,
@@ -85,14 +98,44 @@
   transition: opacity 0.5s;
 }
 
-.click {
-  font-family: "Kantumruy Pro", serif;
-  font-size: 2rem;
-  font-weight: 300;
+.iconText1,
+.iconText2,
+.iconText3,
+.iconText4,
+.iconText5,
+.iconText6,
+.iconText7,
+.iconText8,
+.iconText9,
+.iconText10,
+.iconText11,
+.iconText12,
+.iconText13 {
+  font-family: "Raleway", serif;
+  font-size: 3rem;
+  font-weight: 200;
   color: black;
   z-index: 2;
   position: absolute;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#circle-10 {
+  z-index: 100;
+  overflow: visible;
+}
+
+.warning {
+  font-family: "Raleway", serif;
+  font-size: 1rem;
+  font-weight: 200;
+  color: black;
+  z-index: 2;
+  position: absolute;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
